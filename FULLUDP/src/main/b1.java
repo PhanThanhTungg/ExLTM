@@ -21,7 +21,6 @@ public class b1 {
         socket.receive(rPacket);
 
         String receiveMess = new String(rPacket.getData(), 0, rPacket.getLength());
-        System.out.println(receiveMess);
         String []arr = receiveMess.split(";");
         int []cnt = new int[1000];
         int max = 0;
@@ -48,7 +47,6 @@ public class b1 {
             }
 
         String sendMess = arr[0]+";"+charMax+":"+pos;
-        System.out.println(sendMess);
         dPacket = new DatagramPacket(sendMess.getBytes(), sendMess.length(), serverAddress, port);
         socket.send(dPacket);
 

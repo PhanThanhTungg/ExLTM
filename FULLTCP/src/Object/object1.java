@@ -9,7 +9,7 @@ import TCP.Customer;
 
 public class object1 {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws Exception {
         Socket socket = new Socket("203.162.10.109", 2209);
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
@@ -18,9 +18,6 @@ public class object1 {
         oos.flush();
         
         Customer cus = (Customer) ois.readObject();
-        System.out.println(cus.getName());
-        System.out.println(cus.getDayOfBirth());
-        System.out.println(cus.getCode());
         
         String []nameArr = cus.getName().split("\\s+");
         String newName = nameArr[nameArr.length -1].toUpperCase()+",";

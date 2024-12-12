@@ -34,6 +34,7 @@ public class ioStream1 {
         
         os.write((max+"").getBytes());
         os.flush();
+        socket.close();
     }
     
 }
