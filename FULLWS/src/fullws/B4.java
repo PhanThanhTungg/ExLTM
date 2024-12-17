@@ -1,10 +1,13 @@
 
 package fullws;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import vn.medianews.*;
 
-public class B2 {
+public class B4 {
+
     public static int cnt(String x){
         int cnt = 0;
         String check = "ueoaiUEOAI";
@@ -15,7 +18,7 @@ public class B2 {
     }
 
     public static void main(String[] args) {
-        String msv = "B21DCCN727", qcode = "RKPl1oDS";
+        String msv = "B21DCCN703", qcode = "dA4qEnap";
         CharacterService_Service sv = new CharacterService_Service();
         CharacterService port = sv.getCharacterServicePort();
         List<String> input = port.requestStringArray(msv, qcode);
@@ -23,24 +26,12 @@ public class B2 {
         Collections.sort(input, new Comparator<String>(){
             public int compare(String o1, String o2) {
                 if(cnt(o1)!= cnt(o2)) return cnt(o1) - cnt(o2);
-                else return o1.compareTo(o2);
+                return 0;
             }
             
         });
         
-        List<String>output = new ArrayList<>();
-        String tmp = input.get(0);
-        for(int i = 1; i <input.size();i++){
-            if(cnt(input.get(i))== cnt(input.get(i-1))){
-                tmp+=", "+input.get(i);
-            }
-            else{
-                output.add(tmp);
-                tmp = input.get(i);
-            }
-        }
-        output.add(tmp);
-        port.submitCharacterStringArray(msv, qcode, output);
+        port.submitCharacterStringArray(msv, qcode, input);
         
     }
     
