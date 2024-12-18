@@ -11,14 +11,8 @@ public class b5 {
     byte[] input = sv.requestData("B21DCCN703", "6qFMw9Ug");
     
     String output = "";
-    String arrHex = "0123456789abcdef";
     for(byte x:input){
-      String tmp ="";
-      while(x != 0){
-        tmp = arrHex.charAt(x%16)+tmp;
-        x/=16;
-      }
-      output+=tmp;
+      output+=Integer.toHexString(x);
     }
 
     sv.submitData("B21DCCN703", "6qFMw9Ug", output.getBytes());

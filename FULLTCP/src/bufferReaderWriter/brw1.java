@@ -29,7 +29,7 @@ public class brw1 {
             cnt[x]=0;
         }
 
-    bw.write(output);
+    bw.write(output+"\n");
     bw.flush();
 
     socket.close();

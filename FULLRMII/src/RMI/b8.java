@@ -1,6 +1,5 @@
 
 package RMI;
-import java.rmi.*;
 import java.rmi.registry.*;
 import java.util.Base64;
 
